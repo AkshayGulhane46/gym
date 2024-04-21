@@ -12,6 +12,9 @@ function Navbar() {
         <Link to="/" className='menu_item'>Dashboard</Link>
         <Link to="/clients" className='menu_item'>Clients</Link>
         <Link to="/new-client" className='menu_item'>Create New Client</Link>
+        <Link to="/login" className='menu_item'>Login</Link>
+        <Link to="/newtrainer" className='menu_item'>NewTrainer</Link>
+        <Link to="/timeline" className='menu_item'>timeline</Link>
       </div>
     </div>
   );

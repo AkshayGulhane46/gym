@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .time-slots {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); /* Assuming 18-hour timeline with 30-minute intervals */
+    width: 85vw;
+    margin-left: 10vw;
+  }
+  
+  .time-slot {
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+
+  }
+  
+  .trainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  
+  .trainer-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: small;
+    width: 10vw;
+  }
+
+  .shift-time{
+    font-size: smaller;
+  }
+  
+  .events {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); /* Assuming 18-hour timeline with 30-minute intervals */
+    gap: 5px;
+    width: 85vw;
+  }
+  
+  .event {
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 3vw;
+    border-radius: 10px;
+  }
+  
+  .event.assigned {
+    background-color: #007bff;
+    color: black;
+    border: 1px solid black;
+  }
+
+  .assigned-active {
+    background-color: lightblue; /* Change to the desired color */
+    color: white;
+  }
+  
+  
+  .event.active {
+    background-color: #e8f7ea; /* Background color for active hours in events */
+    font-size: 0.6rem;
+    align-content: center;
+    overflow-wrap: break-word;
+  }
+  

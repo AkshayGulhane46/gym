@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styles/ClientsPage.scss';
+import data from './data.json'; // Import the JSON data file
 
 function ClientsPage() {
   const [clients, setClients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Fetch client data from an API or use mock data
   useEffect(() => {
-    // Example of fetching data from an API (replace with your actual API endpoint)
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => setClients(data))
-      .catch(error => console.error('Error fetching client data:', error));
+    // Set the clients data from the imported JSON file
+    setClients(data.clients);
   }, []);
 
   const handleUpdate = (id) => {
-    // Handle update action here, you can navigate to a different page or open a modal for editing
     console.log(`Update client with ID: ${id}`);
   };
 
@@ -36,23 +32,23 @@ function ClientsPage() {
   return (
     <div className="clients_page">
       <div className='table_header'>
-           <div className='client_headers'><h1>Clients Table</h1></div>
-           <div className='search_box'> <input
+        <div className='client_headers'><h1>Clients Table</h1></div>
+        <div className='search_box'>
+          <input
             type="text"
             placeholder="Search by name, username, email, phone, street, or city"
             value={searchTerm}
             onChange={handleSearch}
-            />
-            </div>
+          />
+        </div>
       </div>
       <table>
         <thead>
           <tr>
             <th>Name</th>
-            <th>Mobile Number</th>
+            <th>Trainer Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Street</th>
             <th>City</th>
             <th>Action</th> {/* Add a new table header for the action button */}
           </tr>
@@ -61,14 +57,14 @@ function ClientsPage() {
           {filteredClients.map(client => (
             <tr key={client.id}>
               <td>{client.name}</td>
-              <td>{client.username}</td>
+              <td>{client.trainerName}</td>
               <td>{client.email}</td>
               <td>{client.phone}</td>
-              <td>{client.address.street}</td>
-              <td>{client.address.city}</td>
+              {/* <td>{client.address.street}</td>*/}
+              <td>{client.city}</td> 
               <td>
                 <button onClick={() => handleUpdate(client.id)}>Update</button>
-              </td> {/* Add the update button here */}
+              </td>
             </tr>
           ))}
         </tbody>
