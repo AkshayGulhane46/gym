@@ -19,6 +19,36 @@ function TrainerTimeline() {
 
   const timeSlots = generateTimeSlots();
 
+  // Function to get client data including assigned till time
+  const getClientData = (trainer, time) => {
+    const assignedClient = trainer.clients.find(client => client.assignedTime === time);
+    if (!assignedClient) return null;
+    return {
+      name: assignedClient.name,
+      duration: assignedClient.assignedFor,
+      from: assignedClient.assignedTime,
+      till: assignedClient.assignedTill,
+      width: calculateWidth(assignedClient.assignedFor)
+    };
+  };
+
+  // Function to calculate width of event based on duration
+  const calculateWidth = (duration) => {
+    const hours = parseInt(duration);
+    const widthPercentage = (hours / 18) * 100; // Assuming 18-hour timeline
+    return `${widthPercentage}vw`;
+  };
+
+  // Function to check if there's free time between two events
+  const hasFreeTime = (trainer, currentTimeSlotIndex) => {
+    const currentSlot = timeSlots[currentTimeSlotIndex];
+    const nextSlot = timeSlots[currentTimeSlotIndex + 1];
+    const currentClient = trainer.clients.find(client => client.assignedTime === currentSlot);
+    const nextClient = trainer.clients.find(client => client.assignedTime === nextSlot);
+    if (!currentClient || !nextClient) return true; // If there's no next event, it means there's free time
+    return currentClient.assignedTill !== nextClient.assignedTime;
+  };
+
   return (
     <div className="container">
       <div className="timeline">
@@ -37,13 +67,26 @@ function TrainerTimeline() {
               <div className="shift-time">{trainer.shiftFrom} - {trainer.shiftTo}</div>
             </div>
             <div className="events">
-              {timeSlots.map(time => {
-                const assignedClient = trainer.clients.find(client => client.assignedTime === time);
+              {timeSlots.map((time, index) => {
                 const isActiveHour = trainer.shiftFrom <= time && time < trainer.shiftTo;
-                const isAssignedAndActive = assignedClient && isActiveHour;
+                const clientData = getClientData(trainer, time);
+                const hasNextEvent = index < timeSlots.length - 1 && getClientData(trainer, timeSlots[index + 1]);
+                const hasGap = hasNextEvent && hasFreeTime(trainer, index);
+                if (!clientData && !hasGap) return null;
                 return (
-                  <div key={time} className={`event ${assignedClient ? 'assigned' : ''} ${isActiveHour ? 'active' : ''} ${isAssignedAndActive ? 'assigned-active' : ''}`}>
-                    {assignedClient ? assignedClient.name : ''}
+                  <div
+                    key={`${trainer.id}-${time}`}
+                    className={`event ${isActiveHour ? 'active' : ''}`}
+                    style={{ width: clientData ? clientData.width : 'auto' }} // Set width based on duration
+                    colSpan={clientData !== null ? 2 : 1} // If clientData is null, merge two cells
+                  >
+                    {clientData && (
+                      <>
+                        <div>{clientData.name}</div>
+                        <div>{clientData.duration}</div>
+                        <div>{clientData.from} - {clientData.till}</div>
+                      </>
+                    )}
                   </div>
                 );
               })}

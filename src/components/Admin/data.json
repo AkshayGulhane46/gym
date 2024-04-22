@@ -6,8 +6,10 @@
       "shiftFrom": "08:00",
       "shiftTo": "16:00",
       "clients": [
-        { "id": 1, "name": "Ramesh", "assignedTime": "10:00" },
-        { "id": 2, "name": "Akshay", "assignedTime": "11:00" }
+        { "id": 1, "name": "Ramesh", "assignedTime": "08:00", "assignedFor": "1" , "assignedTill" : "10:00" },
+        { "id": 2, "name": "Ramesh", "assignedTime": "11:00", "assignedFor": "2" , "assignedTill" : "13:00" },
+        { "id": 3, "name": "Ramesh", "assignedTime": "14:00", "assignedFor": "3" , "assignedTill" : "17:00" },
+        { "id": 2, "name": "Ramesh", "assignedTime": "13:00", "assignedFor": "1" , "assignedTill" : "14:00" }
       ]
     },
     {
@@ -16,8 +18,9 @@
       "shiftFrom": "09:00",
       "shiftTo": "17:00",
       "clients": [
-        { "id": 3, "name": "Priya", "assignedTime": "12:00" },
-        { "id": 4, "name": "Rohan", "assignedTime": "13:00" }
+        { "id": 1, "name": "Ramesh", "assignedTime": "09:00", "assignedFor": "1" , "assignedTill" : "10:00" },
+        { "id": 2, "name": "Ramesh", "assignedTime": "11:00", "assignedFor": "2" , "assignedTill" : "13:00" },
+        { "id": 3, "name": "Ramesh", "assignedTime": "14:00", "assignedFor": "3" , "assignedTill" : "17:00" }
       ]
     },
     {
@@ -26,8 +29,8 @@
       "shiftFrom": "10:00",
       "shiftTo": "18:00",
       "clients": [
-        { "id": 5, "name": "Nilesh", "assignedTime": "14:00" },
-        { "id": 6, "name": "Gamesh", "assignedTime": "15:00" }
+        { "id": 1, "name": "Ramesh", "assignedTime": "09:00", "assignedFor": "1" , "assignedTill" : "10:00" },
+        { "id": 3, "name": "Ramesh", "assignedTime": "14:00", "assignedFor": "3" , "assignedTill" : "17:00" }
       ]
     },
     {
@@ -36,19 +39,101 @@
       "shiftFrom": "11:00",
       "shiftTo": "19:00",
       "clients": [
-        { "id": 7, "name": "Sharma", "assignedTime": "16:00" },
-        { "id": 8, "name": "Rohit", "assignedTime": "17:00" }
+        { "id": 1, "name": "Ramesh", "assignedTime": "09:00", "assignedFor": "1" , "assignedTill" : "10:00" },
+        { "id": 2, "name": "Ramesh", "assignedTime": "11:00", "assignedFor": "2" , "assignedTill" : "13:00" },
+        { "id": 3, "name": "Ramesh", "assignedTime": "14:00", "assignedFor": "1" , "assignedTill" : "15:00" }
       ]
     }
   ],
   "clients": [
-    { "id": 1, "name": "Client 1", "assignedTime": "10:00", "trainerName": "Rohan" , "address" : "test address" , "phone" : "123123112" , "city" : "Nagpur", "email":"test@test.com" },
-    { "id": 2, "name": "Client 2", "assignedTime": "11:00", "trainerId": 1 },
-    { "id": 3, "name": "Client 3", "assignedTime": "12:00", "trainerId": 2 },
-    { "id": 4, "name": "Client 4", "assignedTime": "13:00", "trainerId": 2 },
-    { "id": 5, "name": "Client 5", "assignedTime": "14:00", "trainerId": 3 },
-    { "id": 6, "name": "Client 6", "assignedTime": "15:00", "trainerId": 3 },
-    { "id": 7, "name": "Client 7", "assignedTime": "16:00", "trainerId": 4 },
-    { "id": 8, "name": "Client 8", "assignedTime": "17:00", "trainerId": 4 }
+    { 
+      "id": 1, 
+      "name": "Rahul", 
+      "assignedTime": "10:00", 
+      "trainerName": "Rohit", 
+      "assignedFor": "1",
+      "address": "Nagpur", 
+      "phone": "9876543210", 
+      "city": "Nagpur", 
+      "email": "rahul@example.com" ,
+      "assignedTill" : "10:00"
+    },
+    { 
+      "id": 2, 
+      "name": "Anita", 
+      "assignedTime": "10:00", 
+      "trainerName": "Rohit", 
+      "assignedFor": "1",
+      "address": "Nagpur", 
+      "phone": "9876543210", 
+      "city": "Nagpur", 
+      "email": "anita@example.com" ,"assignedTill" : "10:00"
+    },
+    { 
+      "id": 3, 
+      "name": "Mohan", 
+      "assignedTime": "10:00", 
+      "trainerName": "Rohit", 
+      "assignedFor": "1",
+      "address": "Nagpur", 
+      "phone": "9876543210", 
+      "city": "Nagpur", 
+      "email": "mohan@example.com" ,"assignedTill" : "10:00"
+    },
+    { 
+      "id": 4, 
+      "name": "Radhika", 
+      "assignedTime": "13:00", 
+      "trainerName": "Ankit", 
+      "assignedFor": "1",
+      "address": "Mumbai", 
+      "phone": "9876543210", 
+      "city": "Mumbai", 
+      "email": "radhika@example.com" ,"assignedTill" : "10:00"
+    },
+    { 
+      "id": 5, 
+      "name": "Neelam", 
+      "assignedTime": "14:00", 
+      "trainerName": "Amit", 
+      "assignedFor": "1",
+      "address": "Delhi", 
+      "phone": "9876543210", 
+      "city": "Delhi", 
+      "email": "neelam@example.com" ,"assignedTill" : "10:00"
+    },
+    { 
+      "id": 6, 
+      "name": "Gaurav", 
+      "assignedTime": "15:00", 
+      "trainerName": "Amit", 
+      "assignedFor": "1",
+      "address": "Delhi", 
+      "phone": "9876543210", 
+      "city": "Delhi", 
+      "email": "gaurav@example.com" ,"assignedTill" : "10:00"
+    },
+    { 
+      "id": 7, 
+      "name": "Shivani", 
+      "assignedTime": "16:00", 
+      "trainerName": "Priya", 
+      "assignedFor": "1",
+      "address": "Kolkata", 
+      "phone": "9876543210", 
+      "city": "Kolkata", 
+      "email": "shivani@example.com" ,"assignedTill" : "10:00"
+    },
+    { 
+      "id": 8, 
+      "name": "Rajesh", 
+      "assignedTime": "17:00", 
+      "trainerName": "Priya", 
+      "assignedFor": "1",
+      "address": "Kolkata", 
+      "phone": "9876543210", 
+      "city": "Kolkata", 
+      "email": "rajesh@example.com" ,"assignedTill" : "10:00"
+    }
   ]
 }

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import '../../Styles/NewClientForm.scss';
+import data from '../Admin/data.json';
+
 
 function NewClientForm() {
   const [formData, setFormData] = useState({
@@ -43,9 +45,7 @@ function NewClientForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here
-    console.log(formData);
-    
+    // Validate form fields
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
       if (formData[key] === '') {
@@ -55,10 +55,39 @@ function NewClientForm() {
     setErrors(newErrors);
     // If there are no errors, proceed with form submission
     if (Object.keys(newErrors).length === 0) {
-      // Add form submission logic here
-      console.log(formData);
+      // Add the new client data to the JSON file
+      const newData = {
+        id: data.clients.length + 1, // Generate a unique ID for the new client
+        ...formData,
+      };
+      data.clients.push(newData);
+      // Write the updated data back to the JSON file
+      // This step may require server-side logic in a real application
+      console.log('New client added:', newData);
+      setFormData({
+        name: '',
+        mobileNumber: '',
+        address: '',
+        feesPaid: '',
+        balanceAmount: '',
+        disability: '',
+        hasTrainer: false,
+        isOldClient: false,
+        gymStartDate: '',
+        months: '1',
+      });
+      setErrors({
+        name: false,
+        mobileNumber: false,
+        address: false,
+        feesPaid: false,
+        balanceAmount: false,
+        disability: false,
+        gymStartDate: false,
+      });
     }
   };
+
 
   return (
     <>

@@ -20,7 +20,6 @@
     padding: 5px;
     font-size: 12px;
     text-align: center;
-
   }
   
   .trainer {
@@ -35,8 +34,8 @@
     font-size: small;
     width: 10vw;
   }
-
-  .shift-time{
+  
+  .shift-time {
     font-size: smaller;
   }
   
@@ -54,22 +53,12 @@
     border-radius: 10px;
   }
   
-  .event.assigned {
-    background-color: #007bff;
-    color: black;
-    border: 1px solid black;
-  }
-
-  .assigned-active {
-    background-color: lightblue; /* Change to the desired color */
-    color: white;
-  }
-  
-  
   .event.active {
     background-color: #e8f7ea; /* Background color for active hours in events */
     font-size: 0.6rem;
     align-content: center;
     overflow-wrap: break-word;
   }
+  
+  /* Add additional styles for merging cells if needed */
   
