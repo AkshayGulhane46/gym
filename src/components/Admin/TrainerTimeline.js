@@ -5,6 +5,7 @@ import '../../Styles/TrainerTimeline.scss';
 function TrainerTimeline() {
   const { trainers } = data;
 
+
   // Function to generate time slots from 00:00 to 17:59
   const generateTimeSlots = () => {
     const timeSlots = [];
