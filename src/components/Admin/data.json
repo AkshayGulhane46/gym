@@ -6,9 +6,9 @@
       "shiftFrom": "08:00",
       "shiftTo": "16:00",
       "clients": [
-        { "id": 1, "name": "Ramesh", "assignedTime": "08:00", "assignedFor": "1" , "assignedTill" : "10:00" },
-        { "id": 2, "name": "Ramesh", "assignedTime": "11:00", "assignedFor": "2" , "assignedTill" : "13:00" },
-        { "id": 3, "name": "Ramesh", "assignedTime": "14:00", "assignedFor": "3" , "assignedTill" : "17:00" },
+        { "id": 1, "name": "Akshay", "assignedTime": "08:00", "assignedFor": "1" , "assignedTill" : "10:00" },
+        { "id": 2, "name": "Rohan", "assignedTime": "11:00", "assignedFor": "2" , "assignedTill" : "13:00" },
+        { "id": 3, "name": "Nilesh", "assignedTime": "14:00", "assignedFor": "3" , "assignedTill" : "17:00" },
         { "id": 2, "name": "Ramesh", "assignedTime": "13:00", "assignedFor": "1" , "assignedTill" : "14:00" }
       ]
     },

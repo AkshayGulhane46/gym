@@ -50,7 +50,7 @@ function TrainerTimeline() {
                     {clientData && (
                       <>
                         <div>{clientData.name}</div>
-                        <div>{clientData.assignedTime} - {clientData.assignedTill}</div>
+                       
                       </>
                     )}
                   </div>
