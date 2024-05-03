@@ -25,7 +25,13 @@ function LoginPage() {
   };
 
   return (
-    <div>
+    <>
+    <div className='main_div'>
+    <div className='image_div'>
+      <p>Image will be placed here</p>  
+    </div> 
+
+    <div className='login_div'>
       <h2>Login Page</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
@@ -48,6 +54,8 @@ function LoginPage() {
       </div>
       <button onClick={handleLogin}>Login</button>
     </div>
+    </div>
+    </>
   );
 }
 
