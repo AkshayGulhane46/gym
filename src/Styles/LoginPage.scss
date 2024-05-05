@@ -1,22 +1,93 @@
 
 .main_div{
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: auto;
   width: 90%;
   display: flex;
   margin-top: 10px;
-
-
+  height: 90vh;
 
   .image_div{
-    border: 1px solid black;
     margin: 10px;
     width: 50%;
+
+    img{
+      height: 100%;
+      border-radius: 10px;
+      object-fit: contain;
+    }
   }
   .login_div{
-    border: 1px solid black;
-    margin: 10px;
+    // border: 1px solid black;
+    margin-bottom: 10px;
+    display: flex;
     width: 50%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .banners{
+      width: 100%;
+      text-align: start;
+
+    }
+
+    .inputs_div{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+    }
+
+    .inputs{
+
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      
+      .label{
+        font-size: 1rem;
+        margin-bottom: 5px;
+        font-weight: bolder;
+      }
+      .input_field{
+        width: 100%;
+      }
+      input{
+        border: 1px solid #282c3452;
+        padding: 10px;
+        width: 94%;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        }
+
+   
+   
+        
+      
+    }
+    button{
+      border: 1px solid rgba(40, 44, 52, 0.3215686275);
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+      color: white;
+      background: black;
+      font-size: 1rem;
+      transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    button:hover{
+      cursor: pointer;
+      box-shadow: 0px 6px 5px 0px #00000040;
+
+    }
   }
+
+
+
+
 }
 

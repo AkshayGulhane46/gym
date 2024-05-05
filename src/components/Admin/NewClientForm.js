@@ -3,9 +3,13 @@ import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import '../../Styles/NewClientForm.scss';
 import data from '../Admin/data.json';
-
+import { UseDispatch, useDispatch } from 'react-redux';
+import { addClient } from '../../redux/clientSlice';
 
 function NewClientForm() {
+
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: '',
     mobileNumber: '',
@@ -52,6 +56,17 @@ function NewClientForm() {
         newErrors[key] = true;
       }
     });
+
+    // Validate form fields...
+    if (Object.keys(newErrors).length === 0) {
+      const newData = {
+        id: data.clients.length + 1,
+        ...formData,
+      };
+      dispatch(addClient(newData));
+    }
+
+    
     setErrors(newErrors);
     // If there are no errors, proceed with form submission
     if (Object.keys(newErrors).length === 0) {
@@ -86,6 +101,14 @@ function NewClientForm() {
         gymStartDate: false,
       });
     }
+          // Save data to local storage
+    const saveDataToLocalStorage = (key, data) => {
+        localStorage.setItem(key, JSON.stringify(data));
+      };
+    
+    
+    let x = Math.random() * 10;
+    saveDataToLocalStorage(x,data);
   };
 
 

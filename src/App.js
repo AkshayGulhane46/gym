@@ -8,6 +8,7 @@ import LoginPage from './components/Admin/LoginPage';
 import Dashboard from './components/Admin/Dashboard';
 import NewTrainerForm from './components/Admin/NewTrainerForm';
 import TrainerTimeline from './components/Admin/TrainerTimeline';
+import { Provider } from 'react-redux';
 
 
 function App() {

@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styles/ClientsPage.scss';
 import data from './data.json'; // Import the JSON data file
+import {useSelector} from 'react-redux'
+import { selectClients } from '../../redux/clientSlice';
 
 function ClientsPage() {
-  const [clients, setClients] = useState([]);
+  //const [clients, setClients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    // Set the clients data from the imported JSON file
-    setClients(data.clients);
-  }, []);
+  const getDataFromLocalStorage = (key) => {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+  };
+
+  const clients = useSelector(selectClients);
+
+  useEffect(getDataFromLocalStorage);
 
   const handleUpdate = (id) => {
     console.log(`Update client with ID: ${id}`);
