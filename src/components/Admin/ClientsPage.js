@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styles/ClientsPage.scss';
-import data from './data.json'; // Import the JSON data file
-import {useSelector} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'; // Import useDispatch
 import { selectClients } from '../../redux/clientSlice';
 
 function ClientsPage() {
-  //const [clients, setClients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-
-  const getDataFromLocalStorage = (key) => {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-  };
-
   const clients = useSelector(selectClients);
-
-  useEffect(getDataFromLocalStorage);
+  const dispatch = useDispatch(); // Define dispatch function
 
   const handleUpdate = (id) => {
     console.log(`Update client with ID: ${id}`);
@@ -26,7 +17,7 @@ function ClientsPage() {
   };
 
   // Filter clients based on search term
-  const filteredClients = clients.filter(client =>
+  const filteredClients = clients.filter((client) =>
     client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     client.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
     client.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -35,11 +26,29 @@ function ClientsPage() {
     client.address.city.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  useEffect(() => {
+    console.log('Storing clients in localStorage:', clients);
+    localStorage.setItem('clients', JSON.stringify(clients));
+  }, [clients]);
+  
+  useEffect(() => {
+    const storedClients = JSON.parse(localStorage.getItem('clients'));
+    console.log('Retrieved clients from localStorage:', storedClients);
+    if (storedClients) {
+      // Dispatch action to initialize clients data in Redux store
+      // dispatch(initializeClients(storedClients));
+      console.log('Initialized clients from localStorage in Redux store:', storedClients);
+    }
+  }, [dispatch]);
+  
+
   return (
     <div className="clients_page">
-      <div className='table_header'>
-        <div className='client_headers'><h1>Clients Table</h1></div>
-        <div className='search_box'>
+      <div className="table_header">
+        <div className="client_headers">
+          <h1>Clients Table</h1>
+        </div>
+        <div className="search_box">
           <input
             type="text"
             placeholder="Search by name, username, email, phone, street, or city"
@@ -56,18 +65,17 @@ function ClientsPage() {
             <th>Email</th>
             <th>Phone</th>
             <th>City</th>
-            <th>Action</th> {/* Add a new table header for the action button */}
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {filteredClients.map(client => (
+          {filteredClients.map((client) => (
             <tr key={client.id}>
               <td>{client.name}</td>
               <td>{client.trainerName}</td>
               <td>{client.email}</td>
               <td>{client.phone}</td>
-              {/* <td>{client.address.street}</td>*/}
-              <td>{client.city}</td> 
+              <td>{client.city}</td>
               <td>
                 <button onClick={() => handleUpdate(client.id)}>Update</button>
               </td>
