@@ -30,7 +30,7 @@ function NewClientForm() {
     feesPaid: false,
     balanceAmount: false,
     disability: false,
-    gymStartDate: false,
+    gymStartDate: false,          
   });
 
   const handleChange = (e) => {

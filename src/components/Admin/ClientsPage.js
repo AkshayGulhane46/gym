@@ -66,6 +66,18 @@ function ClientsPage() {
             <th>Phone</th>
             <th>City</th>
             <th>Action</th>
+
+
+            name: 'Akshay',
+      mobileNumber: '1242314',
+      address: 'Test Address',
+      feesPaid: 200,
+      balanceAmount: 100,
+      disability: false,
+      hasTrainer: false,
+      isOldClient: false,
+      gymStartDate: "",
+      months: '1',
           </tr>
         </thead>
         <tbody>
@@ -75,7 +87,7 @@ function ClientsPage() {
               <td>{client.trainerName}</td>
               <td>{client.email}</td>
               <td>{client.phone}</td>
-              <td>{client.city}</td>
+              <td>{client.address}</td>
               <td>
                 <button onClick={() => handleUpdate(client.id)}>Update</button>
               </td>
