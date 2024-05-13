@@ -61,33 +61,23 @@ function ClientsPage() {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Trainer Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>City</th>
+            <th>mobileNumber</th>
+            <th>address</th>
+            <th>feesPaid</th>
+            <th>balanceAmount</th>
+            <th>hasTrainer</th>
             <th>Action</th>
-
-
-            name: 'Akshay',
-      mobileNumber: '1242314',
-      address: 'Test Address',
-      feesPaid: 200,
-      balanceAmount: 100,
-      disability: false,
-      hasTrainer: false,
-      isOldClient: false,
-      gymStartDate: "",
-      months: '1',
           </tr>
         </thead>
         <tbody>
           {filteredClients.map((client) => (
             <tr key={client.id}>
               <td>{client.name}</td>
-              <td>{client.trainerName}</td>
-              <td>{client.email}</td>
-              <td>{client.phone}</td>
+              <td>{client.mobileNumber}</td>
               <td>{client.address}</td>
+              <td>{client.feesPaid}</td>
+              <td>{client.balanceAmount}</td>
+              <td>{client.hasTrainer}</td>
               <td>
                 <button onClick={() => handleUpdate(client.id)}>Update</button>
               </td>
