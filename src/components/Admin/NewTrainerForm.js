@@ -77,7 +77,7 @@ function NewTrainerForm() {
         salary: false,
         clients: false,
         inTime: false,
-        outTime: false,
+        outTime: true,
       });
     }
   };
