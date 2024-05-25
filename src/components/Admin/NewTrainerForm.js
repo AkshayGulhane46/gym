@@ -66,7 +66,7 @@ function NewTrainerForm() {
         mobileNumber: '',
         address: '',
         salary: '',
-        clients: [],
+        clients: ["aman"],
         inTime: '',
         outTime: ''
       });
