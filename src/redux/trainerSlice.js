@@ -7,7 +7,7 @@ const trainerSlice = createSlice({
             name : 'Tony',
             mobileNumber : '123123',
             address : "Test address",
-            salary : 20000,
+            salary : 30000,
             clients : [
                 "Tony","Mony"
             ],
