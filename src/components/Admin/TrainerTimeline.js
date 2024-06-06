@@ -5,7 +5,6 @@ import '../../Styles/TrainerTimeline.scss';
 function TrainerTimeline() {
   const { trainers } = data;
 
-  // Function to generate time slots from 06:00 to 23:59
   const generateTimeSlots = () => {
     const timeSlots = [];
     for (let hour = 6; hour < 24; hour++) {
@@ -27,7 +26,6 @@ function TrainerTimeline() {
   return (
     <div className="container">
       <div className="timeline">
-        {/* Render time slots */}
         <div className="time-slots">
           {timeSlots.map(time => (
             <div key={time} className="time-slot">{time}</div>
@@ -49,8 +47,7 @@ function TrainerTimeline() {
                   <div key={`${trainer.id}-${time}`} className={`event ${clientData ? 'active' : ''} ${isActiveHour ? 'shift-active' : ''}`}>
                     {clientData && (
                       <>
-                        <div>{clientData.name}</div>
-                       
+                        <div>{clientData.name}</div>                       
                       </>
                     )}
                   </div>
